@@ -1,0 +1,84 @@
+{
+  "name": "pybase_tests",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "cy:open": "cypress open",
+    "cy:open:focus": "cypress open -e TAGS=\"@focus\"",
+    "cy:run": "cypress run --browser chrome --headless",
+    "test": "npm run cy:run",
+    "chrome": "cypress run --browser chrome --headed",
+    "multi-skip": "npx cypress-tags run -e TAGS=\"not @skip and not @skip_if_x\"",
+    "focus": "npx cypress-tags run -e TAGS=\"@focus\"",
+    "eslint": "eslint \"cypress/**/*.js\"",
+    "eslint:fix": "eslint --fix \"cypress/**/*.js\"",
+    "prettier:check": "prettier --check \"cypress/**/*.{js,css,json,md,less}\"",
+    "prettier:fix": "prettier --write \"cypress/**/*.{js,css,json,md,less}\"",
+    "precommit": "lint-staged"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "cypress": "^9.0.0",
+    "cypress-cucumber-preprocessor": "^4.0.3",
+    "cypress-log-to-output": "^1.1.2",
+    "eslint": "^7.26.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-chai-friendly": "^0.6.0",
+    "eslint-plugin-cypress": "^2.11.3",
+    "eslint-plugin-import": "^2.22.0",
+    "husky": "^4.2.5",
+    "lint-staged": "^11.0.0",
+    "prettier": "^2.2.1"
+  },
+  "cypress-cucumber-preprocessor": {
+    "nonGlobalStepDefinitions": true
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run precommit"
+    }
+  },
+  "eslintConfig": {
+    "extends": [
+      "plugin:cypress/recommended"
+    ],
+    "plugins": [
+      "import",
+      "cypress",
+      "chai-friendly"
+    ],
+    "rules": {
+      "no-unused-expressions": 0,
+      "chai-friendly/no-unused-expressions": 2,
+      "no-console": [
+        "error"
+      ],
+      "no-debugger": "error",
+      "no-alert": "error",
+      "camelcase": "error",
+      "import/no-default-export": "error"
+    }
+  },
+  "lint-staged": {
+    "*.+(js|jsx)": [
+      "eslint --fix"
+    ],
+    "*.css": [
+      "stylelint --syntax css --fix",
+      "prettier --write",
+      "git add"
+    ],
+    "*.less": [
+      "stylelint --syntax less --fix",
+      "prettier --write",
+      "git add"
+    ],
+    "*.{js,json,md}": [
+      "prettier --write",
+      "git add"
+    ]
+  }
+}
