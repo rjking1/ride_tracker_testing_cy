@@ -43,3 +43,21 @@ And("check the ride is the most recent", () => {
     2
   );
 });
+
+And("edit a ride", () => {
+  cy.contains("✎ Edit").click();
+  cy.get("#id_km").focus().clear().type("88");
+  cy.get("#id_alt").focus().clear().type("1111");
+  cy.get("#id_desc").focus().clear().type("test ride edited");
+  cy.get("#id_weather").focus().clear().type("rainy");
+  cy.contains("Update").click();
+});
+
+And("check the ride has been edited correctly", () => {
+  exportTableToCSV(cy.get("table"), "rides2.csv");
+  compareFilesUsingRegExp(
+    "./cypress/downloads/rides2.csv",
+    "./cypress/expected/rides2.csv",
+    2
+  );
+});
