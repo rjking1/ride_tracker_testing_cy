@@ -324,7 +324,6 @@ export function compareFilesUsingRegExp(
   // the remainder of the actual file is not checked
   // (this is to provide a means of having "don't care" fields and rows)
   // the expected file rows are treated as RegExp's
-  // see 7000 tests for usage
   cy.readFile(actualFileName).then((actual) => {
     cy.readFile(expectedFileName).then((expected) => {
       // strip CRs leaving only LFs (Windows / Unix)
@@ -332,13 +331,13 @@ export function compareFilesUsingRegExp(
       expected = expected.replace(/\r\n/g, "\n");
 
       // check line by line using RegExp
-      const actuals = actual.split("\n");
-      const expecteds = expected.split("\n");
+      const actualLines = actual.split("\n");
+      const expectedLines = expected.split("\n");
 
       // only compare at most the number of lines in expected results file
       // or a maxiumum of <rows>
-      expecteds.forEach((expectedLine, index) => {
-        const actualLine = actuals[index];
+      expectedLines.forEach((expectedLine, index) => {
+        const actualLine = actualLines[index];
         if (index < rows) {
           expect(actualLine).to.match(new RegExp(expectedLine));
         }
