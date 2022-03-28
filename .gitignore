@@ -6,4 +6,6 @@ cypress/screenshots/
 cypress/downloads/
 cypress/reports/
 
+lambdatest_run.json
+
 notes-do-not-commit.txt
