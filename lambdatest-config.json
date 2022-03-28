@@ -1,0 +1,50 @@
+{
+   "lambdatest_auth": {
+      "username": "rjking58",
+      "access_key": "oiaqb21J8Xiv7QZPssumHUdKzEyXbkAt6DoausOqELkfaX6ZRr"
+   },
+   "xxbrowsers": [
+      {
+         "browser": "Chrome",
+         "platform": "Windows 10",
+         "versions": [
+            "latest-1"
+         ]
+      },
+      {
+         "browser": "Chrome",
+         "platform": "macOS Big Sur",
+         "versions": [
+            "latest-1"
+         ]
+      }
+   ],   
+   "browsers": [
+      {
+         "browser": "Firefox",
+         "platform": "macOS Catalina",
+         "versions": [
+            "latest-1"
+         ]
+      }
+   ],
+   "run_settings": {
+      "cypress_config_file": "cypress.json",
+      "build_name": "Ride Tracker",
+      "parallels": 1,
+      "specs": "./cypress/integration/*.feature",
+      "ignore_files": "",
+      "feature_file_suppport": true,
+      "network": false,
+      "headless": false,
+      "reporter_config_file": "",
+      "npm_dependencies": {
+         "cypress": "9.5.1",
+         "cypress-cucumber-preprocessor": "^4.0.3"
+      }
+   },
+   "tunnel_settings": {
+      "tunnel": false,
+      "tunnel_name": null
+   }
+}

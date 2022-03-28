@@ -8,6 +8,7 @@
     "cy:open:focus": "cypress open -e TAGS=\"@focus\"",
     "cy:run": "cypress run --browser chrome --headless",
     "test": "npm run cy:run",
+    "lambdatest": "lambdatest-cypress run",
     "chrome": "cypress run --browser chrome --headed",
     "multi-skip": "npx cypress-tags run -e TAGS=\"not @skip and not @skip_if_x\"",
     "focus": "npx cypress-tags run -e TAGS=\"@focus\"",

@@ -15,7 +15,7 @@ And("I login to Ride Tracker", () => {
   cy.wait(1000);
 });
 
-And("check the stats are within reason", () => {
+And("I check the stats are within reason", () => {
   const fileName = "ride_tracker.csv";
   // eslint-disable-next-line cypress/no-unnecessary-waiting
   cy.wait(2000);
@@ -26,7 +26,7 @@ And("check the stats are within reason", () => {
   );
 });
 
-And("add a ride", () => {
+And("I add a ride", () => {
   cy.contains("Add").click();
   cy.get("#id_km").focus().clear().type("99");
   cy.get("#id_alt").focus().clear().type("1234");
@@ -44,7 +44,7 @@ And("check the ride is the most recent", () => {
   );
 });
 
-And("edit a ride", () => {
+And("I edit a ride", () => {
   cy.contains("✎ Edit").click();
   cy.get("#id_km").focus().clear().type("88");
   cy.get("#id_alt").focus().clear().type("1111");
